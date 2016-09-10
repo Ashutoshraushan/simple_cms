@@ -1,0 +1,30 @@
+<div data-role="page">  
+      <div data-role="main" class="ui-content">
+	<p id="notice"><%= notice %></p>
+	<div data-role="header">
+          <h1>Details of <%=@employee.name%> </h1>
+        </div>
+	<p>
+	  <strong>Name:</strong>
+	  <%= @employee.name %>
+	</p>
+
+	<p>
+	  <strong>Designation:</strong>
+	  <%= @employee.designation %>
+	</p>
+
+	<p>
+	  <strong>Exp:</strong>
+	  <%= @employee.exp %>
+	</p>
+
+	<p>
+	  <strong>Location:</strong>
+	  <%= @employee.location %>
+	</p>
+
+	<%= link_to 'Edit', edit_employee_path(@employee) %> |
+	<%= link_to 'Back', employees_path %>
+</div>
+</div>

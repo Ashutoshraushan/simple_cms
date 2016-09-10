@@ -1,0 +1,59 @@
+<div data-role="page" id="pageone">  
+      <div data-role="main" class="ui-content">
+        <div data-role="header">
+          <h1>Employee database</h1>
+        </div>
+
+        <h1>Listing Employees</h1>
+
+        <table data-role="table" class="ui-responsive">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Designation</th>
+              <th>Exp</th>
+              <th>Location</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @employees.each do |employee| %>
+              <tr>
+                <td><%= employee.name %></td>
+                <td><%= employee.designation %></td>
+                <td><%= employee.exp %></td>
+                <td><%= employee.location %></td>
+                <td><%= link_to 'Show', employee %></td>
+                <td><%= link_to 'Edit', edit_employee_path(employee),'data-transition'=>"slide" %></td>
+                <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <br>
+
+        <%= link_to 'New Employee', '#pagetwo' , 'data-transition'=>"slide"%>
+        </div>
+</div>
+
+<div data-role="page" id="pagetwo">
+  <div data-role="main" class="ui-content">
+  <div data-role="header">
+    <h1>Add a new Employee</h1>
+  </div>
+    <%= render :partial=>"form" %>
+  </div>
+</div>
+
+
+<div data-role="page">
+  <div data-role="main" class="ui-content">
+  <div data-role="header">
+    <h1>Edit Employee</h1>
+  </div>
+    <%= render :partial=>"form" %>
+  </div>
+</div>
+
